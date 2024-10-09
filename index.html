@@ -12,7 +12,7 @@
             background-color: #f4f4f4;
         }
         header {
-            background: #4CAF50;
+            background: #FF6F61;
             color: white;
             padding: 10px 0;
             text-align: center;
@@ -42,6 +42,7 @@
             padding: 10px;
             background: #e7f3fe;
             border-left: 6px solid #2196F3;
+            display: none;
         }
     </style>
 </head>
@@ -54,52 +55,8 @@
 <section>
     <h2>Completa el siguiente formulario</h2>
     <form id="colorimetria-form">
-        <input type="text" placeholder="Tu nombre" required>
-        <label for="tipo-piel">Tipo de piel:</label>
-        <select id="tipo-piel" required>
+        <label for="color-piel">Color de piel:</label>
+        <select id="color-piel" required>
             <option value="">Selecciona...</option>
             <option value="clara">Clara</option>
-            <option value="media">Media</option>
-            <option value="oscura">Oscura</option>
-        </select>
-        <label for="tono-piel">Tono de piel:</label>
-        <select id="tono-piel" required>
-            <option value="">Selecciona...</option>
-            <option value="frio">Frío</option>
-            <option value="calido">Cálido</option>
-            <option value="neutro">Neutro</option>
-        </select>
-        <button type="submit">Descubrir Colorimetría</button>
-    </form>
-    <div id="result" style="display:none;"></div>
-</section>
-
-<footer>
-    <p>&copy; 2024 Descubre tu Colorimetría. Todos los derechos reservados.</p>
-</footer>
-
-<script>
-    document.getElementById('colorimetria-form').addEventListener('submit', function(event) {
-        event.preventDefault();
         
-        const nombre = event.target[0].value;
-        const tipoPiel = event.target[1].value;
-        const tonoPiel = event.target[2].value;
-
-        let resultado = `Hola ${nombre}, tu colorimetría es `;
-        
-        if (tonoPiel === 'frio') {
-            resultado += 'fría. Los colores que mejor te quedan son los azules, verdes y morados.';
-        } else if (tonoPiel === 'calido') {
-            resultado += 'cálida. Los colores que mejor te quedan son los amarillos, naranjas y dorados.';
-        } else {
-            resultado += 'neutra. Puedes experimentar con una amplia gama de colores.';
-        }
-
-        document.getElementById('result').textContent = resultado;
-        document.getElementById('result').style.display = 'block';
-    });
-</script>
-
-</body>
-</html>
