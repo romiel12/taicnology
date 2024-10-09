@@ -102,27 +102,29 @@
         let resultado = 'Basado en tus respuestas, tu colorimetría podría ser: ';
 
         if (colorPiel === 'clara') {
-            if (colorOjos === 'azules' || colorOjos === 'verdes' || colorOjos === 'avellana') {
+            if (colorOjos === 'azules' || colorOjos === 'verdes') {
                 resultado += 'Primavera.';
             } else if (colorOjos === 'grises') {
                 resultado += 'Invierno.';
+            } else {
+                resultado += 'Verano.';
             }
         } else if (colorPiel === 'media') {
             if (colorOjos === 'marrones') {
                 resultado += 'Otoño.';
             } else if (colorOjos === 'azules' || colorOjos === 'verdes') {
                 resultado += 'Verano.';
+            } else {
+                resultado += 'Otoño.';
             }
         } else if (colorPiel === 'oscura') {
-            if (colorOjos === 'marrones' || colorOjos === 'verdes') {
+            if (colorOjos === 'marrones') {
                 resultado += 'Otoño.';
             } else if (colorOjos === 'negros') {
                 resultado += 'Invierno.';
+            } else {
+                resultado += 'Otoño.';
             }
-        }
-
-        if (resultado === 'Basado en tus respuestas, tu colorimetría podría ser: ') {
-            resultado += 'No se pudo determinar la colorimetría exacta. Prueba combinaciones diferentes.';
         }
 
         document.getElementById('result').textContent = resultado;
