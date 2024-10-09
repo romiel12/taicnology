@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Encuentra Citas</title>
+    <title>Descubre tu Colorimetría</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,7 +12,7 @@
             background-color: #f4f4f4;
         }
         header {
-            background: #007BFF;
+            background: #4CAF50;
             color: white;
             padding: 10px 0;
             text-align: center;
@@ -30,31 +30,76 @@
             font-size: 0.9em;
             color: #777;
         }
-        input[type="text"], input[type="date"], button {
+        input[type="text"], select, button {
             padding: 10px;
             margin-top: 10px;
             width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            background: #e7f3fe;
+            border-left: 6px solid #2196F3;
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Encuentra Citas</h1>
+    <h1>Descubre tu Colorimetría</h1>
 </header>
 
 <section>
-    <h2>Buscar Citas</h2>
-    <form id="search-form">
-        <input type="text" placeholder="Ingresa el tema de la cita" required>
-        <input type="date" required>
-        <button type="submit">Buscar</button>
+    <h2>Completa el siguiente formulario</h2>
+    <form id="colorimetria-form">
+        <input type="text" placeholder="Tu nombre" required>
+        <label for="tipo-piel">Tipo de piel:</label>
+        <select id="tipo-piel" required>
+            <option value="">Selecciona...</option>
+            <option value="clara">Clara</option>
+            <option value="media">Media</option>
+            <option value="oscura">Oscura</option>
+        </select>
+        <label for="tono-piel">Tono de piel:</label>
+        <select id="tono-piel" required>
+            <option value="">Selecciona...</option>
+            <option value="frio">Frío</option>
+            <option value="calido">Cálido</option>
+            <option value="neutro">Neutro</option>
+        </select>
+        <button type="submit">Descubrir Colorimetría</button>
     </form>
+    <div id="result" style="display:none;"></div>
 </section>
 
 <footer>
-    <p>&copy; 2024 Encuentra Citas. Todos los derechos reservados.</p>
+    <p>&copy; 2024 Descubre tu Colorimetría. Todos los derechos reservados.</p>
 </footer>
+
+<script>
+    document.getElementById('colorimetria-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const nombre = event.target[0].value;
+        const tipoPiel = event.target[1].value;
+        const tonoPiel = event.target[2].value;
+
+        let resultado = `Hola ${nombre}, tu colorimetría es `;
+        
+        if (tonoPiel === 'frio') {
+            resultado += 'fría. Los colores que mejor te quedan son los azules, verdes y morados.';
+        } else if (tonoPiel === 'calido') {
+            resultado += 'cálida. Los colores que mejor te quedan son los amarillos, naranjas y dorados.';
+        } else {
+            resultado += 'neutra. Puedes experimentar con una amplia gama de colores.';
+        }
+
+        document.getElementById('result').textContent = resultado;
+        document.getElementById('result').style.display = 'block';
+    });
+</script>
 
 </body>
 </html>
