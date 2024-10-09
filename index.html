@@ -59,4 +59,66 @@
         <select id="color-piel" required>
             <option value="">Selecciona...</option>
             <option value="clara">Clara</option>
+            <option value="media">Media</option>
+            <option value="oscura">Oscura</option>
+        </select>
+        
+        <label for="color-ojos">Color de ojos:</label>
+        <select id="color-ojos" required>
+            <option value="">Selecciona...</option>
+            <option value="azules">Azules</option>
+            <option value="verdes">Verdes</option>
+            <option value="marrones">Marrones</option>
+            <option value="negros">Negros</option>
+            <option value="grises">Grises</option>
+        </select>
+        
+        <label for="color-pelo">Color de pelo:</label>
+        <select id="color-pelo" required>
+            <option value="">Selecciona...</option>
+            <option value="rubio">Rubio</option>
+            <option value="castano">Castaño</option>
+            <option value="negro">Negro</option>
+            <option value="rojo">Rojo</option>
+        </select>
+        
+        <button type="submit">Descubrir Colorimetría</button>
+    </form>
+    <div id="result"></div>
+</section>
+
+<footer>
+    <p>&copy; 2024 Descubre tu Colorimetría. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+    document.getElementById('colorimetria-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const colorPiel = event.target[0].value;
+        const colorOjos = event.target[1].value;
+        const colorPelo = event.target[2].value;
+
+        let resultado = 'Basado en tus respuestas, tu colorimetría podría ser: ';
+
+        if (colorPiel === 'clara' && (colorOjos === 'azules' || colorOjos === 'verdes') && colorPelo === 'rubio') {
+            resultado += 'Primavera.';
+        } else if (colorPiel === 'media' && colorOjos === 'marrones' && (colorPelo === 'castano' || colorPelo === 'rojo')) {
+            resultado += 'Otoño.';
+        } else if (colorPiel === 'clara' && colorOjos === 'grises' && colorPelo === 'negro') {
+            resultado += 'Invierno.';
+        } else if (colorPiel === 'media' && (colorOjos === 'azules' || colorOjos === 'verdes') && (colorPelo === 'rubio' || colorPelo === 'castano')) {
+            resultado += 'Verano.';
+        } else {
+            resultado += 'No se pudo determinar la colorimetría exacta. Prueba combinaciones diferentes.';
+        }
+
+        document.getElementById('result').textContent = resultado;
+        document.getElementById('result').style.display = 'block';
+    });
+</script>
+
+</body>
+</html>
+
         
